@@ -99,7 +99,7 @@
 (for a fasta file) with taxonomic information. Currently this can be done in one of two ways:</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>For PFAM alignments, annotations can be extracted from the file pfamseq.txt (please download from: <a class="reference external" href="ftp://ftp.sanger.ac.uk/pub/databases/Pfam/current_release/database_files">ftp://ftp.sanger.ac.uk/pub/databases/Pfam/current_release/database_files</a>)</li>
+<li>For PFAM alignments, annotations can be extracted from the file pfamseq.txt. This file can be downloaded from the PFAM ftp site. To access this, go to the following link: <a class="reference external" href="http://pfam.xfam.org/help#tabview=tab12">http://pfam.xfam.org/help#tabview=tab12</a>, click on database_files, and download pfamseq.txt.gz (notice that this is a large file).</li>
 <li>For Blast alignments, annotations can be added using the NCBI Entrez utilities provided by BioPython. In this case, an additional command line argument (&#8211;giList, see below) should specify a list of gi numbers. These numbers are then used to query NCBI for taxonomy information (note that this approach requires a network connection).</li>
 </ol>
 </div></blockquote>
