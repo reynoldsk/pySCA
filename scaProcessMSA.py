@@ -207,10 +207,10 @@ if __name__ =='__main__':
                         if options.refpos is not None:
                                 f = open(options.refpos,'r')
                                 ats_tmp = [line.rstrip('\n') for line in f]
-                                #print ats_tmp
                                 f.close()
                         else:
-                                ats_tmp = range(len(sequences_full[0]))
+                                print 'here!'
+                                ats_tmp = range(len(sequences_ori[0]))
                         sequences, ats = sca.makeATS(sequences_full, ats_tmp, s_tmp, i_ref, options.truncate)
                 except:
                         sys.exit("Error!!  Can't find reference sequence...")
