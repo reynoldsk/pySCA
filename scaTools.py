@@ -110,7 +110,7 @@ def readAlg(filename):
     return headers, sequences
 
 def AnnotPfam(pfam_in, pfam_out, pfam_seq=path2pfamseq):
-    ''' Phylogenetic annotation of a Pfam alignment (in fasta format) using information from pfamseq.txt (ftp://ftp.sanger.ac.uk/pub/databases/Pfam/current_release/database_files/). The output is a fasta file containing phylogenetic annotations in the header (to be parsed with '|' as a delimiter).
+    ''' Phylogenetic annotation of a Pfam alignment (in fasta format) using information from pfamseq.txt. The output is a fasta file containing phylogenetic annotations in the header (to be parsed with '|' as a delimiter).
     
     Note: the headers for the original alignment take the form >AAA/x-y.  If two entries have same AAA but correspond to different sequences only one of the two sequences will be represented (twice) in the output - this should however not practically be an issue. 
     
@@ -145,8 +145,13 @@ def AnnotPfam(pfam_in, pfam_out, pfam_seq=path2pfamseq):
             info = seq_info[key]
         except:
             info = '\t'.join(['unknown']*10 + ['unknown;unknown'])
-        f.write('>%s|%s|%s|%s\n' % (key, info.split('\t')[6], info.split('\t')[9],\
-                ','.join([name.strip() for name in info.split('\t')[10].split(';')])))
+        #this f.write line works with older pfamseq.txt files (release 4 and before, was 
+        #used to annotate the tutorial alignments
+        #f.write('>%s|%s|%s|%s\n' % (key, info.split('\t')[6], info.split('\t')[9],\
+        #        ','.join([name.strip() for name in info.split('\t')[10].split(';')])))
+        #this f.write line works with the new version of pfamseq.txt
+        f.write('>%s|%s|%s|%s\n' % (key, info.split('\t')[5], info.split('\t')[8],\
+                ','.join([name.strip() for name in info.split('\t')[9].split(';')])))
         f.write('%s\n' % (sequences[i]))
     f.close()
     print('Elapsed time: %.1f min' % ((end_time-start_time)/60))
