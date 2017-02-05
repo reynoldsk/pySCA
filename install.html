@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,12 +10,12 @@
     
     <title>Installation &mdash; pySCA 1 documentation</title>
     
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
+        URL_ROOT:    '',
         VERSION:     '1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -23,18 +25,18 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="pySCA 1 documentation" href="index.html" />
     <link rel="next" title="Getting Started" href="get_started.html" />
     <link rel="prev" title="Statistical Coupling Analysis in python." href="index.html" /> 
   </head>
-  <body role="document">
+  <body>
 
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
 <a href="index.html"><img src="_static/logo.png" border="0" alt="py4sci"/></a>
 </div>
 
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -55,7 +57,7 @@
       </ul>
     </div>
 
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -74,14 +76,12 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="get_started.html"
                         title="next chapter">Getting Started</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/install.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/install.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -100,16 +100,14 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="downloading-the-code">
 <h2>1. Downloading the code<a class="headerlink" href="#downloading-the-code" title="Permalink to this headline">¶</a></h2>
 <p>The pySCA package, tutorials, and associated scripts are available for
-download from:</p>
-<blockquote>
-<div><a class="reference external" href="https://github.com/reynoldsk/pySCA">https://github.com/reynoldsk/pySCA</a></div></blockquote>
+download from: <cite>yet to be determined website address</cite></p>
 </div>
 <div class="section" id="package-dependencies">
 <h2>2. Package Dependencies<a class="headerlink" href="#package-dependencies" title="Permalink to this headline">¶</a></h2>
@@ -125,7 +123,7 @@ pySCA (NumPy, SciPy, iPython, and Matplotlib).</p>
 <li><p class="first">Install biopython - this can be done in two ways:</p>
 <ol class="loweralpha">
 <li><p class="first">from the command line, run:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">conda</span> <span class="n">install</span> <span class="n">biopython</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">conda</span> <span class="n">install</span> <span class="n">biopython</span>
 </pre></div>
 </div>
 </li>
@@ -146,12 +144,8 @@ critical for the scaProcessMSA.py script.</p>
 <li><p class="first">Download pfamseq.txt - a file containing phylogenetic
 annotations for PFAM sequences. This is necessary if you would
 like to annotate PFAM alignments with taxonomic/phylogenetic
-information using the annotate_MSA.py script provided by
-pySCA. This file is quite large, but available from the PFAM
-ftp site in compressed (<a href="#id1"><span class="problematic" id="id2">*</span></a>.gz) format. To get the file, you
-will need to go to the link below, then click on
-database_files to access the ftp site.
-<a class="reference external" href="ftp://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/database_files/">ftp://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/database_files/</a></p>
+information using the annotate_MSA.py script provided by pySCA.</p>
+<p><a class="reference external" href="ftp://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/database_files/">ftp://ftp.sanger.ac.uk/pub/databases/Pfam/current_release/database_files/</a></p>
 </li>
 <li><p class="first">Install PyMol (<a class="reference external" href="http://www.pymol.org/">http://www.pymol.org/</a>) - necessary if you would like to use pySCA&#8217;s automated
 structure mapping scripts, and useful for mapping the sectors
@@ -178,7 +172,7 @@ the locations of these files on your computer:</p>
 <p>path2needle = &#8216;/usr/local/bin&#8217; <cite>location of the needle
 executable, if you have installed EMBOSS needle</cite></p>
 </div></blockquote>
-<p>You may also need to modify the &#8220;shebang&#8221; line (#!) at the top of the
+<p>You may also need to modify the &#8220;shebang&#8221; line (!#) at the top of the
 following scripts to appropriately reflect the path of
 your python installation:</p>
 <blockquote>
@@ -192,20 +186,11 @@ your python installation:</p>
 <h2>4. Getting started and Running the tutorials<a class="headerlink" href="#getting-started-and-running-the-tutorials" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="get_started.html">&#8220;getting started&#8221;</a> section of this documentation provides
 instructions on how to run some initial calculations and the
-tutorials. The basic idea behind the pySCA code is that the
-core calculations are performed using a series of executable python scripts,
-and then the results can be loaded and analyzed/visualized using an
-ipython notebook (or alternatively, Matlab).</p>
-<p>All of the tutorials are written provided  as ipython notebooks. For
-more on how ipython notebooks work, see:
-<a class="reference external" href="http://ipython.org/notebook.html">http://ipython.org/notebook.html</a>. Prior to running the notebook
-tutorials, you&#8217;ll need to run the core calculation scripts that
-generate the input for the notebooks. One way to do this is with the
-shell script &#8220;runAllNBCalcs.sh&#8221;, and there is more information on this
-in the <a class="reference external" href="get_started.html">&#8220;getting started&#8221;</a> section. Once the calculations are
-completed, you can begin the tutorial in interactive python from the
-command line, by typing:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ipython</span> <span class="n">notebook</span> <span class="n">script_dhfr</span><span class="o">.</span><span class="n">ipynb</span>
+tutorials.</p>
+<p>All tutorials are written as ipython notebooks. For more on how
+ipython notebooks work, see: <a class="reference external" href="http://ipython.org/notebook.html">http://ipython.org/notebook.html</a>. To
+begin the tutorial in interactive python from the command line, type:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ipython</span> <span class="n">notebook</span> <span class="n">script_dhfr</span><span class="o">.</span><span class="n">ipynb</span>
 </pre></div>
 </div>
 </div>
@@ -217,7 +202,7 @@ command line, by typing:</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -237,9 +222,9 @@ command line, by typing:</p>
  
       </ul>
     </div>
-    <div class="footer" role="contentinfo">
+    <div class="footer">
         &copy; Copyright 2014, Olivier Rivoire, Kim Reynolds, Rama Ranganathan.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>
 </html>
