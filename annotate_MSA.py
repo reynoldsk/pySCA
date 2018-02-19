@@ -88,7 +88,7 @@ if __name__ == '__main__':
         print "Look up for Tax IDs complete. Time: %f" % (end-start)
 
         # Collect records with lineage information
-        print "Collecting taxonomy information..."
+        print("Collecting taxonomy information...")
         start = time.clock()
         records = list()
         for i,k in enumerate(taxID):
@@ -97,8 +97,8 @@ if __name__ == '__main__':
                 temp_rec = Entrez.read(handle)
                 handle.close()
                 records.append(temp_rec[0])
-                print "%s" % (temp_rec[0]['Lineage'])
-                print "%s" % (temp_rec[0]['ScientificName'])
+                print("%s" % (temp_rec[0]['Lineage']))
+                print("%s" % (temp_rec[0]['ScientificName']))
             except:
                 records.append('')
         end = time.clock()
@@ -113,7 +113,7 @@ if __name__ == '__main__':
                 hdnew = hd[i]+'|'+records[i]['ScientificName']+'|'+','.join(records[i]['Lineage'].split(';'))
             except:
                 hdnew = hd[i]+'| unknown '
-                print "Unable to add taxonomy information for seq: %s" % hd[i]
+                print("Unable to add taxonomy information for seq: %s" % hd[i])
             f.write('>%s\n' % hdnew)
             f.write('%s\n' % k)
         f.close()
