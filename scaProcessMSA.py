@@ -88,6 +88,7 @@ if __name__ =='__main__':
                                                 print("And...ignoring the PDB file...")
                                                 options.pdbid = None
                                 options.refpos = range(len(options.refseq))+1
+                 
                 if options.refseq is not None and options.refpos is not None:
                                 print("Using the reference sequence and position list...")
                                 if options.pdbid is not None:
@@ -189,7 +190,7 @@ if __name__ =='__main__':
                                                         ats_tmp = range(len(sequences[0]))
                                 else:
                                         print("No reference position list provided.  Using default numbering 1 to number of positions")
-                                        ats_tmp = range(len(sequences[0]))
+                                        ats_tmp = range(len(sequences_full[0]))
                                 sequences, ats = sca.makeATS(sequences_full, ats_tmp, s_tmp[0], i_ref, options.truncate)
                         except:
                                 sys.exit("Error!!  Can't find reference sequence...")

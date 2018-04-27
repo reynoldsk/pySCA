@@ -679,8 +679,8 @@ def seqSim(alg):
     simMat = (X2d.dot(X2d.T)).todense()/Npos
     return simMat
 
-def posWeights(alg, seqw=1, lbda=0, freq0 = np.array([.073, .025, .050, .061, .042, .072,\
-    .023, .053, .064, .089,.023, .043, .052, .040, .052, .073, .056, .063, .013, .033])):
+def posWeights(alg, seqw=1, lbda=0, N_aa = 20, freq0 = np.array([.073, .025, .050, .061, .042, .072,\
+	.023, .053, .064, .089,.023, .043, .052, .040, .052, .073, .056, .063, .013, .033]), tolerance=1e-12):
     ''' Compute single-site measures of conservation, and the sca position weights, :math:`\\frac {\partial {D_i^a}}{\partial {f_i^a}}`
 
     **Arguments:**
@@ -698,11 +698,12 @@ def posWeights(alg, seqw=1, lbda=0, freq0 = np.array([.073, .025, .050, .061, .0
        >>> Wia, Dia, Di = posWeights(alg, seqw=1,freq0)
     
     '''
-    N_seq, N_pos = alg.shape; N_aa = 20
+    N_seq, N_pos = alg.shape; 
     if type(seqw) == int and seqw == 1: seqw = np.ones((1,N_seq))
-    freq1, freq2, freq0 = freq(alg, Naa=20, seqw=seqw, lbda=lbda, freq0=freq0)
+    freq1, freq2, _ = freq(alg, Naa=N_aa, seqw=seqw, lbda=lbda, freq0=freq0)
     # Overall fraction of gaps:
     theta = 1 - freq1.sum()/N_pos
+    if theta<tolerance: theta = 0
     # Background frequencies with gaps:
     freqg0 = (1-theta)*freq0
     freq0v = np.tile(freq0,N_pos)
@@ -718,11 +719,11 @@ def posWeights(alg, seqw=1, lbda=0, freq0 = np.array([.073, .025, .050, .061, .0
     Di = np.zeros(N_pos)
     for i in range(N_pos):
         freq1i = freq1[N_aa*i: N_aa*(i+1)]
-        aok = [a for a in range(N_aa) if (freq1i[a]>0 and freq1i[a]<1)]
+        aok = [a for a in range(N_aa) if freq1i[a]>0]
         flogf = freq1i[aok]*np.log(freq1i[aok]/freqg0[aok])
         Di[i] = flogf.sum()
         freqgi = 1 - freq1i.sum()
-        if freqgi > 0: Di[i] += freqgi*np.log(freqgi/theta)
+        if freqgi > tolerance: Di[i] += freqgi*np.log(freqgi/theta)
     return Wia, Dia, Di
 
 def seqProj(msa_num, seqw, kseq=15, kica=6):
@@ -995,7 +996,7 @@ def icList(Vpica, kpos, Csca, p_cut=0.95):
         iqr = scoreatpercentile(Vpica[:,k],75) - scoreatpercentile(Vpica[:,k],25)
         binwidth=2*iqr*(len(Vpica[:,k])**(-0.33))
         nbins=round((max(Vpica[:,k])-min(Vpica[:,k]))/binwidth)
-        h_params = np.histogram(Vpica[:,k], nbins)
+        h_params = np.histogram(Vpica[:,k], int(nbins))
         x_dist = np.linspace(min(h_params[1]), max(h_params[1]), num=100)
         area_hist=Npos*(h_params[1][2]-h_params[1][1]);
         scaled_pdf.append(area_hist*(t.pdf(x_dist,pd[0],pd[1],pd[2])))
