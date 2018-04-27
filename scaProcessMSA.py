@@ -240,7 +240,7 @@ if __name__ =='__main__':
         Nseqprelimit = len(alg1)
         print("After filtering: alignment size is %i seqs, %i effective seqs, %i pos" % (len(alg1), effseqsprelimit, len(alg1[0])))        
 
-        # Limitation of total sequences to [1.5 * # ofeffective sequences] if Nselect is set to True
+        # Limitation of total sequences to [1.5 * # of effective sequences] if Nselect is set to True
         if (options.Nselect):
                 seqsel = sca.randSel(seqw0, int(1.5*effseqsprelimit), [seqkeep.index(i_ref)])
                 alg = [alg1[s] for s in seqsel]
