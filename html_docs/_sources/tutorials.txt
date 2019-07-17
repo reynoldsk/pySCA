@@ -1,3 +1,17 @@
+************************
+************************
+QUESTIONS:
+
+I am trying to run the tutorial scripts from a computer cluster. I am having
+issues trying to use jupyter/ipython notebooks. Is it possible to run jupyter
+from a cluster (possibly in conjunction with Xming or XQuartz) or is this a 
+complete compatibility issue? Does your lab implement a similar strategy, or
+are the tutorial-type scripts run on a local machine?
+
+Thanks,
+Jonathan
+************************
+************************
 .. _tutorials
 
 Tutorials - Usage:
