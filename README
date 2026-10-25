@@ -1,3 +1,15 @@
+*************************************************************
+
+PLEASE NOTE THERE IS A NEWER VERSION OF PYSCA AT: 
+https://github.com/ranganathanlab/pySCA
+
+THE BELOW README AND ALL ASSOCIATED CODE ARE FROM A 2015 IMPLEMENTATION
+ASSOCIATIOND WITH OUR PLOS COMPUTATIONAL BIOLOGY PUBLICATION.
+
+Since then, the code has been reworked for compatibility with Python 3
+and several bug fixes have been implemented. Please use the newer version hosted 
+by the Ranganathan lab.
+
 #############################################################
 # README file for pySCA
 #
